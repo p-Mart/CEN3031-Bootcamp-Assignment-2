@@ -28,8 +28,8 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
     $scope.showDetails = function(index) {
         var element = $scope.listings[index];
         $scope.detailedInfo = {
-          "name" : element.name,
-          "address" : element.address,
+          "name" : "Name: " +element.name,
+          "address" : "Address: " + element.address,
           "latitude" : "Latitude: " + element.coordinates.latitude,
           "longitude" : "Longitude: " + element.coordinates.longitude
         }

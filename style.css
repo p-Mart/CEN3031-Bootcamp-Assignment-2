@@ -1,8 +1,39 @@
 #searchBar {
-  margin: 15px 10px;
+  margin: 15px 5px;
 }
 
 .tableWrapper {
   max-height: 400px;
   overflow: auto;
+  margin-left : 5px;
+}
+
+#page_header{
+  background-color: #002db3;
+  color : #ffffff;
+  padding-left: 15px;
+  padding-bottom: 0px;
+  margin-left: 5px;
+  margin-right : 5px;
+}
+
+#page_header h1{
+  padding-bottom : 10px;
+}
+
+#detailed_info {
+  margin-right : 5px;
+  margin-top: 15px;
+}
+
+#detailed_info p{
+  font-size : 16px;
+}
+
+.RemoveButton{
+  color: red;
+}
+
+.RemoveButton:hover{
+  color: #990000;
 }

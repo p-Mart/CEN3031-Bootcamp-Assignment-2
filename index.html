@@ -6,11 +6,11 @@
   </head>
   <body ng-app="directoryApp">
     <div class="container">
-      <div class="row">
+      <div class="row" id="page_header">
         <h1>UF Directory App</h1>
       </div>
       <div class="row" ng-controller="ListingsController">
-        <div class="col-md-5">
+        <div class="col-md-6">
           <div class="input-group" id="searchBar">
             <!-- 
 
@@ -37,7 +37,14 @@
                 <tr class="test" ng-repeat="listing in listings | filter:filter as results" ng-click="showDetails(listings.indexOf(listing))">
                   <td>{{listing.code}}</td>
                   <td>{{listing.name}}</td>
-                  <td><button ng-click="deleteListing(listings.indexOf(listing))" class="btn btn-danger btn-xs">X</button></td>
+                  <td>
+
+                  <a class="RemoveButton" href="#" ng-click="deleteListing(listings.indexOf(listing))">
+                    <span class="glyphicon glyphicon-remove"></span>
+                  </a>
+
+                  </td>
+
                 </tr>
                 <tr class="test" ng-if="results.length === 0">
                   <td>No results found.</td>
@@ -51,42 +58,46 @@
               Write an HTML form that adds new listings to the directory 
 
             -->
-        <h3>Add a new listing:</h3>
+        <h3>Add Listing:</h3>
+        <hr class="my-4">
+        <form>
+          <div class="form-group row">
+            <div class="col-md-4">
+            <input class="form-control" id="code" ng-model="code" placeholder="Code">
+            </div>
+
+            <div class="col-md-8">
+            <input class="form-control" id="name" ng-model="name" placeholder="Building Name">
+            </div>
+          </div>
+        </form>
 
         <div class="form-group">
-          <label for="code">*Code:</label>
-          <input class="form-control" id="code" ng-model="code">
+          <input class="form-control" id="address" ng-model="address" placeholder="Address">
         </div>
 
-        <div class="form-group">
-          <label for="name">*Name:</label>
-          <input class="form-control" id="name" ng-model="name">
-        </div>
+        <form>
+          <div class="form-group row">
+          <div class="col-md-4">
+            <input class="form-control" id="latitude" ng-model="latitude" placeholder="Latitude">
+          </div>
 
-        <div class="form-group">
-          <label for="address">Address:</label>
-          <input class="form-control" id="address" ng-model="address">
-        </div>
-
-        <div class="form-group">
-          <label for="latitude">Latitude:</label>
-          <input class="form-control" id="latitude" ng-model="latitude">
-        </div>
-
-        <div class="form-group">
-          <label for="longitude">Longitude:</label>
-          <input class="form-control" id="longitude" ng-model="longitude">
-        </div>
-
-        <p>* : required</p>
+          <div class="col-md-4">
+            <input class="form-control" id="longitude" ng-model="longitude" placeholder="Longitude">
+          </div>
+          </div>
+        </form>
 
         <button type="submit" class="btn btn-primary" ng-click="addListing()">Add Listing</button>
 
+
         </div>
 
-        <div class="col-md-7">
-          <div class="jumbotron">
-            <h2>Detailed Information</h2>
+        <div></div>
+        <div class="col-md-6">
+          <div class="jumbotron" id="detailed_info">
+            <h2 class="display-3">Detailed Information</h2>
+            <hr class="my-4">
             <!-- 
 
               Include a way to display detailed information about an individual listing:
